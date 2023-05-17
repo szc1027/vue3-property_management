@@ -1,6 +1,12 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div>
+    <QueryForm v-bind="formConfig" v-model="formData">
+      <template #button>
+        <el-button icon="plus" type="primary">新增</el-button>
+      </template>
+    </QueryForm>
+
     <BaseTable :tableList="tableList" v-bind="tableConfig">
       <template #menuType="scope">
         <el-tag :type="scope.row.type == 1 ? '' : 'primary'">
@@ -21,6 +27,28 @@
 import BaseTable from '@/baseUI/table'
 import { ref, reactive, toRefs } from 'vue'
 import { tableConfig } from './config/table.config'
+import QueryForm from '@/baseUI/from'
+import { formConfig } from './config/form.config'
+
+const formItems = formConfig?.formList?.filter((item) => item.field)
+const formOrigin = {}
+for (const item of formItems) {
+  formOrigin[item.field] = ''
+}
+
+const formData = ref(formOrigin)
+
+const page = ref({
+  currentPage: 1,
+  pageSize: 10
+})
+
+const handleReset = () => {
+  for (const key in formOrigin) {
+    formData.value[key] = formOrigin[key]
+  }
+}
+
 const tableList = ref([
   {
     menuId: 3,
