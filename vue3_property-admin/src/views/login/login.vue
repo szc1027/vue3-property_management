@@ -17,7 +17,7 @@ const ty = {
 onMounted(() => {
   getLoginInfo(ty).then((res: any) => {
     console.log('res=>', res)
-    localStorage.setItem('token', res.data.data.token), router.push('/main')
+    localStorage.setItem('token', res.data.data.token), router.push('/')
   })
 })
 </script>

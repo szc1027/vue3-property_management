@@ -7,6 +7,7 @@
           <img src="http://wyp.2yuecloud.com/favicon.ico" alt="" />
           <p>物业管理系统</p>
         </div>
+        <Basebard></Basebard>
       </el-header>
       <el-container>
         <el-aside width="200px">
@@ -16,8 +17,9 @@
             class="el-menu-vertical-demo"
             default-active="2"
             text-color="#fff"
+            router
           >
-            <el-menu-item index="1">
+            <el-menu-item index="/">
               <el-icon><Menu /></el-icon>
               <span>首页</span>
             </el-menu-item>
@@ -38,13 +40,16 @@
             </el-menu-item> -->
           </el-menu>
         </el-aside>
-        <el-main>Main</el-main>
+        <el-main>
+          <RouterView />
+        </el-main>
       </el-container>
     </el-container>
   </div>
 </template>
 <script setup lang="ts">
 import { getMenuList } from '@/api/api'
+import Basebard from '@/baseUI/bradcrumb'
 
 import { ref, reactive, onMounted } from 'vue'
 const Menulist = ref()
@@ -61,6 +66,7 @@ onMounted(() => {
   padding: 0;
   width: 100vw;
   background-color: aquamarine;
+  display: flex;
 }
 .el-aside {
   height: 94vh;

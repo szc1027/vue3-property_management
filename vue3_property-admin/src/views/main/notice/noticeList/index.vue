@@ -2,11 +2,11 @@
 <template>
   <div class="role">
     <BaseTable :tableList="tableList" v-bind="tableConfig">
+     
       <template #action>
         <div style="padding: 5px 0">
           <el-button size="default" icon="EditPen" type="primary">编辑</el-button>
-          <el-button size="default" icon="EditPen" type="success">分配权限</el-button>
-          <el-button size="default" icon="Delete" type="danger">删除</el-button>
+          <el-button size="default" icon="EditPen" type="danger">删除</el-button>
         </div>
       </template>
     </BaseTable>
@@ -18,19 +18,25 @@ import { ref, reactive, toRefs } from 'vue'
 import { tableConfig } from './config/table.config'
 const tableList = ref([
   {
-    roleId: 5,
-    roleName: '管理员角色',
-    remark: '管理员角色'
+    noticeId: 6,
+    userId: null,
+    title: '1',
+    noticeContent: '1',
+    createTime: '2022-10-15 09:46:09'
   },
   {
-    roleId: 6,
-    roleName: '水费管理员',
-    remark: '收水费'
+    noticeId: 3,
+    userId: null,
+    title: '测试',
+    noticeContent: '测试',
+    createTime: '2021-06-25 14:20:47'
   },
   {
-    roleId: 8,
-    roleName: '业主',
-    remark: '租住房子的人'
+    noticeId: 1,
+    userId: null,
+    title: '环境卫生1',
+    noticeContent: '请大家不要随地乱扔垃圾！',
+    createTime: '2021-06-25 14:14:53'
   }
 ])
 </script>

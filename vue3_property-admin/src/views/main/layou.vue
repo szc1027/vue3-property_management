@@ -1,6 +1,7 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="">
-    <div></div>
+    <div>首页</div>
   </div>
 </template>
 <script setup lang="ts">
